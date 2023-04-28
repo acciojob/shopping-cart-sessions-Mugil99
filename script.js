@@ -1,38 +1,27 @@
-// This is the boilerplate code given for you
-// You can modify this code
-// Product data
-const products = [
-  { id: 1, name: "Product 1", price: 10 },
-  { id: 2, name: "Product 2", price: 20 },
-  { id: 3, name: "Product 3", price: 30 },
-  { id: 4, name: "Product 4", price: 40 },
-  { id: 5, name: "Product 5", price: 50 },
-];
+//your code here
+let grandtotal = 0;
+const addData = () => {
+  let name = document.getElementById("item-name-input").value;
+  let qty = document.getElementById("item-qty-input").value;
+  let price = document.getElementById("item-price-input").value;
+  let table = document.getElementById("table1");
+  let newRow = table.insertRow(table.rows.length - 1);
+  let namecell = newRow.insertCell(0);
+  let qtycell = newRow.insertCell(1);
+  let pricecell = newRow.insertCell(2);
+  let totalprice = newRow.insertCell(3);
+  namecell.classList.add("item");
+  totalprice.classList.add("price");
+  namecell.innerHTML = name;
+  qtycell.innerHTML = qty;
+  pricecell.innerHTML = price;
+  totalprice.innerHTML = qty * price;
+  grandtotal += qty * price;
+  document.getElementById("total").innerHTML =
+    "Total Ammount is " + grandtotal + " $";
+  document.getElementById("myinputs").reset();
+};
 
-// DOM elements
-const productList = document.getElementById("product-list");
+// module.exports = addData;
 
-// Render product list
-function renderProducts() {
-  products.forEach((product) => {
-    const li = document.createElement("li");
-    li.innerHTML = `${product.name} - $${product.price} <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>`;
-    productList.appendChild(li);
-  });
-}
-
-// Render cart list
-function renderCart() {}
-
-// Add item to cart
-function addToCart(productId) {}
-
-// Remove item from cart
-function removeFromCart(productId) {}
-
-// Clear cart
-function clearCart() {}
-
-// Initial render
-renderProducts();
-renderCart();
+// button.addEventListener('click', addData);
